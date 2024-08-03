@@ -3,17 +3,19 @@ import { useState } from 'react'
 import { assets } from '../../assets/assets'
 const Navbar = () => {
     const [active,setActive]=useState("Home")
+    let activeExpression='cursor-pointer border-b-2 border-b-blue-900 text-blue-900 font-semibold'
+    let notActiveExpression='cursor-pointer text-blue-900 font-semibold'
     return (
-        <div className='flex p-3 justify-around items-center pt-6'>
+        <div className='flex p-3 justify-between items-center pt-6'>
             <div className='tomato-logo'>
                 <img src={assets.logo} alt="" />
             </div>
             <div className='ul-section'>
                 <ul className='flex gap-8 justify-center items-center'>
-                    <li className='cursor-pointer hover:border-b-2 border-b-blue-900 text-blue-900 font-semibold'>Home</li>
-                    <li className='cursor-pointer text-blue-900 font-semibold'>Menu</li>
-                    <li className='cursor-pointer text-blue-900 font-semibold'>Mobile app</li>
-                    <li className='cursor-pointer text-blue-900 font-semibold'>Contact us</li>
+                    <li onClick={()=>setActive("Home")} className={active==="Home"?activeExpression:notActiveExpression}>Home</li>
+                    <li onClick={()=>setActive("Menu")} className={active==="Menu"?activeExpression:notActiveExpression}>Menu</li>
+                    <li onClick={()=>setActive("Mobile-app")} className={active==="Mobile-app"?activeExpression:notActiveExpression}>Mobile app</li>
+                    <li onClick={()=>setActive("Contact-us")} className={active==="Contact-us"?activeExpression:notActiveExpression}>Contact us</li>
                 </ul>
             </div>
             <div className='navbar-right flex justify-center gap-7 items-center'>
